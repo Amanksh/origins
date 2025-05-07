@@ -1,93 +1,182 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { CheckCircle, Users, Sparkles, Recycle, HeartHandshake, BadgeCheck } from "lucide-react"
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
-const values = [
-  {
-    icon: CheckCircle,
-    title: "Quality",
-    description: "We never compromise on the quality of our products and services, ensuring longevity and reliability.",
-  },
-  {
-    icon: Users,
-    title: "Customer Focus",
-    description: "We prioritize understanding and meeting our customers' unique needs and expectations.",
-  },
-  {
-    icon: Sparkles,
-    title: "Innovation",
-    description: "We continuously explore new technologies and approaches to stay at the forefront of the industry.",
-  },
-  {
-    icon: Recycle,
-    title: "Sustainability",
-    description: "We are committed to environmentally responsible practices in our operations and products.",
-  },
-  {
-    icon: HeartHandshake,
-    title: "Integrity",
-    description: "We conduct business with honesty, transparency, and ethical standards.",
-  },
-  {
-    icon: BadgeCheck,
-    title: "Excellence",
-    description: "We strive for excellence in every aspect of our work, from design to installation and support.",
-  },
-]
+const Card = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <div
+      className={cn(
+        "rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 hover:bg-white/10 transition-all duration-300",
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
+};
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-}
+const CardContent = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  return <div className={cn("relative z-10", className)}>{children}</div>;
+};
 
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
-}
+const CardHeader = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  return <div className={cn("mb-4", className)}>{children}</div>;
+};
+
+const CardTitle = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <h3 className={cn("text-xl font-semibold text-primary", className)}>
+      {children}
+    </h3>
+  );
+};
+
+const CardDescription = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <p className={cn("text-muted-foreground leading-relaxed", className)}>
+      {children}
+    </p>
+  );
+};
 
 export function AboutValues() {
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
+    <section className="w-full py-16 md:py-24 lg:py-32 relative overflow-hidden">
+      <div className="absolute inset-0 " />
+      <div className="container px-4 md:px-6 relative">
+        <div className="flex flex-col items-center justify-center space-y-8 text-center">
           <motion.div
-            className="space-y-2"
+            className="space-y-4 max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Our Core Values</h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              The principles that guide our decisions and define our company culture
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80">
+              Still, if you think WHY ORION?
+            </h2>
+          </motion.div>
+        </div>
+
+        <div className="mx-auto max-w-3xl py-12">
+          <motion.div
+            className="space-y-6 text-muted-foreground"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <p className="text-lg leading-relaxed">
+              Well, we are one of the fastest growing LED manufacturers and the
+              greatest factor which makes us different from our competitors is
+              our after-sales services.
+            </p>
+            <p className="text-lg leading-relaxed">
+              Our outstanding after-sales services help us to build trust for
+              and in our client's eyes. Once you become a client, you won't have
+              to worry about where to go if any problem occurs after installing
+              the screen.
+            </p>
+            <p className="text-lg leading-relaxed">
+              AOPCPL after-sales service is always there to help you!
             </p>
           </motion.div>
         </div>
 
-        <motion.div
-          className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-3"
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-        >
-          {values.map((value) => (
-            <motion.div key={value.title} className="flex flex-col items-center text-center" variants={item}>
-              <div className="mb-4 rounded-full p-3 gradient-bg">
-                <value.icon className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-xl font-bold">{value.title}</h3>
-              <p className="mt-2 text-muted-foreground">{value.description}</p>
+        <div className="mx-auto max-w-5xl py-12">
+          <h3 className="text-2xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80">
+            We follow 3 C's for our Clients
+          </h3>
+
+          <div className="grid gap-8 md:grid-cols-3">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <Card className="group hover:shadow-2xl hover:shadow-primary/20">
+                <CardContent>
+                  <CardHeader>
+                    <CardTitle>Customised Product</CardTitle>
+                  </CardHeader>
+                  <CardDescription>
+                    Our products are not generally sold off the shelf. We
+                    provide tailor-made LED screens to our clients as per their
+                    requirements for both indoor and outdoor sites.
+                  </CardDescription>
+                </CardContent>
+              </Card>
             </motion.div>
-          ))}
-        </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <Card className="group hover:shadow-2xl hover:shadow-primary/20">
+                <CardContent>
+                  <CardHeader>
+                    <CardTitle>Customer Satisfaction</CardTitle>
+                  </CardHeader>
+                  <CardDescription>
+                    To meet customer satisfaction we offer the best on-site and
+                    after-sales services. Our dedicated team identifies the
+                    client's needs and offers the best solutions.
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              <Card className="group hover:shadow-2xl hover:shadow-primary/20">
+                <CardContent>
+                  <CardHeader>
+                    <CardTitle>Certified Products</CardTitle>
+                  </CardHeader>
+                  <CardDescription>
+                    Orion LEDs are made up of world-class components that give
+                    competition to other big brands. All the products are BIS
+                    certified which signifies quality products.
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
       </div>
     </section>
-  )
+  );
 }

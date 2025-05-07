@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { Card, CardContent } from "@/components/ui/card"
-import { motion } from "framer-motion"
-import { Quote } from "lucide-react"
-import Image from "next/image"
+import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { Quote } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -24,7 +24,7 @@ const testimonials = [
     author: "Vikram Singh",
     position: "IT Director, Corporate Office",
   },
-]
+];
 
 const clients = [
   "/placeholder-logo.svg",
@@ -35,7 +35,7 @@ const clients = [
   "/placeholder-logo.svg",
   "/placeholder-logo.svg",
   "/placeholder-logo.svg",
-]
+];
 
 const container = {
   hidden: { opacity: 0 },
@@ -45,51 +45,20 @@ const container = {
       staggerChildren: 0.1,
     },
   },
-}
+};
 
 const item = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0 },
-}
+};
 
 export function Testimonials() {
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
       <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <motion.div
-            className="space-y-2"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Our Clients</h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Trusted by leading businesses and organizations across India
-            </p>
-          </motion.div>
-        </div>
-
-        <motion.div
-          className="mx-auto grid max-w-5xl grid-cols-2 gap-8 py-12 md:grid-cols-4"
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-        >
-          {clients.map((logo, index) => (
-            <motion.div key={index} className="flex items-center justify-center" variants={item}>
-              <div className="relative h-16 w-32">
-                <Image
-                  src={logo || "/placeholder.svg"}
-                  alt={`Client logo ${index + 1}`}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+        <h2 className="text-3xl text-center font-bold tracking-tighter sm:text-5xl">
+          Testimonials
+        </h2>
 
         <div className="mx-auto max-w-5xl py-12">
           <motion.div
@@ -104,10 +73,14 @@ export function Testimonials() {
                 <Card className="h-full">
                   <CardContent className="p-6">
                     <Quote className="h-8 w-8 text-muted-foreground/50" />
-                    <p className="mt-4 text-muted-foreground">{testimonial.quote}</p>
+                    <p className="mt-4 text-muted-foreground">
+                      {testimonial.quote}
+                    </p>
                     <div className="mt-6">
                       <p className="font-semibold">{testimonial.author}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.position}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {testimonial.position}
+                      </p>
                     </div>
                   </CardContent>
                 </Card>
@@ -117,5 +90,5 @@ export function Testimonials() {
         </div>
       </div>
     </section>
-  )
+  );
 }

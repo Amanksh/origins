@@ -102,7 +102,7 @@ function ContactHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            <h1 className="text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl">
               <span className="text-[#4DA6FF]">IF YOU HAVE ANY QUERY?</span>{" "}
               CONTACT US.
             </h1>
@@ -129,7 +129,7 @@ function ContactCards() {
               <Card className="h-full border border-[#4DA6FF]/30 shadow-[0_0_15px_rgba(77,166,255,0.15)]">
                 <CardContent className="p-6 flex flex-col items-center text-center">
                   <div className="mb-4 rounded-full p-3 bg-transparent">
-                    <info.icon className="h-12 w-12" />
+                    <info.icon className="h-12 w-12 text-[#4DA6FF]" />
                   </div>
                   <h3 className="text-xl font-bold mb-2">{info.title}</h3>
                   {info.subtitle && (
@@ -137,7 +137,7 @@ function ContactCards() {
                   )}
                   <div className="space-y-1">
                     {info.details.map((detail, idx) => (
-                      <p key={idx} className="text-sm text-black">
+                      <p key={idx} className="text-sm text-white">
                         {detail}
                       </p>
                     ))}
